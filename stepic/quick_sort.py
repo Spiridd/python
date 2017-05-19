@@ -40,7 +40,7 @@ def partition(v, left, right):
     # choose pivot as median of first, middle and last element
     middle = (left + right) // 2
     x = v[middle]
-    first, last = v[0], v[-1]
+    first, last = v[0], v[-1]  # TODO 0 -> left, -1 -> right
     if first <= last <= x:
         v[middle], v[-1] = v[-1], v[middle]
         x = last
