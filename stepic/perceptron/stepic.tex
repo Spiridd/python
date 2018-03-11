@@ -1,0 +1,64 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage{bold-extra}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{float}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{appendix}
+\usepackage{braket}
+\usepackage{cite}
+\usepackage[nottoc,numbib]{tocbibind}
+
+\geometry{
+a4paper,
+left = 30mm,
+right = 10mm,
+bottom = 20mm,
+top = 20mm,
+}
+\renewcommand{\rmdefault}{ftm} % TimesNewRoman
+\renewcommand{\baselinestretch}{1.5} 
+\begin{document}
+
+Рассмотрим произвольную бесконечно дифференцируемую функцию $ J(x) $, $ x = (x_1, ..., x_n) $ --- вектор параметров, и произвольное приращение аргумента $ \Delta x $. Пользуясь формулой Тейлора для функции многих переменных, запишем:
+\begin{align*}
+J \left( x + \Delta x \right) - J \left( x \right)
+= J \left( x \right) + \left( \Delta x, \nabla \right) J \left( x \right) + o \left( \Vert \Delta x \Vert \right) - J \left( x \right) = \\
+= \left( \Delta x, \nabla \right) J \left( x \right) + o \left( \Vert \Delta x \Vert \right)
+= \left( \Delta x, \nabla J \right) + o \left( \Vert \Delta x \Vert \right),
+\end{align*}
+где $ \Vert \Delta x \Vert = \sqrt{\sum \limits_{i=1}^n \left( \Delta x_i \right)^2} $.
+Мы получили, что при достаточно малом приращении $ \Delta x $ изменение функции приближённо равно скалярному произведению приращения аргумента и градиента функции: $ \left( \Delta x, \nabla J \right) $. Далее будем считать, что приращение аргумента имеет фиксированную достаточно малую длину $ \epsilon $: $\Vert \Delta x \Vert = \epsilon $.
+
+Для произвольного приращения аргумента верно следующее (использовано неравенство Коши-Буняковского):
+\begin{equation*}
+J(x + \Delta x) - J(x) 
+= (\nabla J, \Delta x) 
+\le \Vert \nabla J \Vert \cdot \Vert \Delta x \Vert
+= \Vert \nabla J \Vert \cdot \epsilon. 
+\end{equation*}
+Рассмотрим приращение вдоль градиента: 
+$$ \Delta x' = \frac{\nabla J}{\Vert \nabla J \Vert} \epsilon. $$
+Тогда в силу определения скалярного произведения получим:
+\begin{equation*}
+J(x + \Delta x') - J(x) 
+= \left( \nabla J, \Delta x' \right)
+= \left( \nabla J, \frac{\nabla J}{\Vert \nabla J \Vert} \epsilon \right) 
+= \Vert \nabla J \Vert \cdot \epsilon.
+\end{equation*}
+Очевидно, что $ \Delta x' $ доставляет максимум приращению функции, т.е. градиент задаёт направление наибольшего роста функции:
+\begin{equation*}
+J(x + \Delta x) - J(x) \le \Vert \nabla J \Vert \cdot \epsilon 
+= J(x + \Delta x') - J(x).
+\end{equation*}
+
+
+\end{document}

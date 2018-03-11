@@ -9,3 +9,4 @@ for line in sys.stdin:
         continue
     if re.findall(pattern, line):
         print(line)
+

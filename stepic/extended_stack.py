@@ -21,3 +21,4 @@ stack.extend([1, 2, 3, 4, 5, 6])
 print(stack)
 stack.sum()
 print(stack)
+
